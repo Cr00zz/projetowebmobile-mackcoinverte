@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Logo from "./imgs/coinverter.png"
+import "./Cambio.css"
 
 let nextId = 0;
 export default function Home(){
@@ -21,52 +22,66 @@ export default function Home(){
       useEffect(carregarCoin, []);
 
       const newCoin = (coin, coinName) => {
+        const newvalue2 = parseFloat(value2/coin).toFixed(2);
         setCoinSimbol(coinName)
         setCoinConverted(coin)
-        setValue1(value2 / coin)
+        setValue1(newvalue2)
       };
+
+      
 
     return(
         <div>
           <section className="pageHeader">
-            <h1>Mack CoinVerte</h1>
-            <img src={Logo} alt="mackcoinverte" />
+            <div className="pageTitle">
+              <div>
+                Mack <br />
+                CoinVerte
+              </div>
+              <img src={Logo} alt="mackcoinverte" />
+            </div>
             <p>Bem-vindo ao nosso site de conversão de moedas! Aqui, você encontrará uma ferramenta prática e atualizada para converter moedas estrangeiras. Ideal para os alunos da Faculdade Mackenzie que estão planejando um intercâmbio, nossa calculadora permite que você tenha uma compreensão clara das taxas de câmbio, facilitando o planejamento financeiro durante sua experiência no exterior.</p>
           </section>
           <section className="conversor">
             <section className="buttons">
-              <button onClick={() => newCoin(coins?.USDBRL?.bid, "US$")}>Dolar</button>
-              <button onClick={() => newCoin(coins?.EURBRL?.bid, "€")}>Euro</button>
-              <button onClick={() => newCoin(coins?.GBPBRL?.bid, "£")}>Libra</button>
-              <button onClick={() => newCoin(coins?.ARSBRL?.bid, "$")}>Peso arg</button>
-              <button onClick={() => newCoin(coins?.JPYBRL?.bid, "J¥")}>Iene Jap</button>
-              <button onClick={() => newCoin(coins?.CNYBRL?.bid, "C¥")}>Yuan Chinês</button>
-              <button onClick={() => newCoin(coins?.CADBRL?.bid, "C$")}>Dolar Canadense</button>
-              <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>Franco Suíço</button>
-              <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>Dólar Australiano</button>
+              <button onClick={() => newCoin(coins?.USDBRL?.bid, "US$")}>USD</button>
+              <button onClick={() => newCoin(coins?.EURBRL?.bid, "€")}>EUR</button>
+              <button onClick={() => newCoin(coins?.GBPBRL?.bid, "£")}>GBP</button>
+              <button onClick={() => newCoin(coins?.ARSBRL?.bid, "$")}>ARS</button>
+              <button onClick={() => newCoin(coins?.JPYBRL?.bid, "J¥")}>JPY</button>
+              <button onClick={() => newCoin(coins?.CNYBRL?.bid, "C¥")}>CNY</button>
+              <button onClick={() => newCoin(coins?.CADBRL?.bid, "C$")}>CAD</button>
+              <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>CHF</button>
+              <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>AUD</button>
             </section>
             <section className="conversion-results">
+              <div className="real">R$</div>
               <input 
               type="number" 
               value={value2}
               onChange={e => {
-                setValue2(e.target.value)
-                setValue1(e.target.value / coinConverted)
+                const value2 = parseFloat(e.target.value).toFixed(2);
+                const value1 = parseFloat(e.target.value / coinConverted).toFixed(2);
+                setValue2(value2)
+                setValue1(value1)
                 }
               }
               />
-              = {coinSimbol} 
+              <div className="arrow"></div>
+              <div className="outra-moeda">{coinSimbol}</div>
               <input 
               type="number" 
               value={value1}
               onChange={e => {
-                setValue1(e.target.value)
-                setValue2(e.target.value * coinConverted)
+                const value2 = parseFloat(e.target.value).toFixed(2);
+                const value1 = parseFloat(e.target.value * coinConverted).toFixed(2);
+                setValue1(value2)
+                setValue2(value1)
                 }
               }
               />
             </section>
-            <section className="bottom-buttons">
+            <section className="save-button">
               <button onClick={() => {
                 setHistorico([
                   ...historico,
@@ -76,19 +91,36 @@ export default function Home(){
                   coinValue: value1}
                 ])}}>Salvar</button>
             </section>
-            <section className="historico">
-              {historico.map( event => (
-                <div  >
-                  <p key={event.id}> R$ {event.realValue} = {event.moeda} {event.coinValue}</p>
-                  <button onClick={() => {
-                    setHistorico(
-                      historico.filter(e =>
-                      e.id !== event.id
-                        )
-                    );}}>Deletar</button>
-                </div>
-              ))}
-            </section>
+          </section>
+          <section className="historico">
+              <p>Histórico</p>
+              <section className="historic-data">
+                <section className="historic-list">
+                  <section className="historic-header-table">
+                    <div className="historic-titles">
+                      <p>BRL</p>
+                      <p>Outra moeda</p>
+                    </div>
+                    <div className="linhacinza"></div>
+                  </section>
+                  {historico.map( event => (
+                    <div key={event.id} className="historic-results">
+                      <p key={event.id}> R$ {event.realValue}</p>
+                      <p key={event.id}>{event.moeda} {event.coinValue}</p>
+                      <button onClick={() => {
+                        setHistorico(
+                          historico.filter(e =>
+                          e.id !== event.id
+                            )
+                        );}}>Deletar</button>
+                    </div>
+                  ))}
+                </section>
+                <section className="link-buttons">
+                  <button className="button-link">Criptomoedas</button>
+                  <button className="button-link">Vale quanto?</button>
+                </section>
+              </section>
           </section>
       </div>
     );

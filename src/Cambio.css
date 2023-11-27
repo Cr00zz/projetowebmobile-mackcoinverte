@@ -1,0 +1,240 @@
+body{
+    border-radius: 13px;
+    background: #ECE2DF;
+}
+
+.pageHeader{
+    margin-top: 0;
+    margin-left: 88px;
+    padding: 0;
+    gap: 16px;
+}
+
+.pageTitle{
+    display: flex;
+    align-items: flex-end;
+}
+
+.pageTitle>div{
+    color: #D33D20;
+    font-family: 'Futura', sans-serif;
+    font-size: 88px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.pageTitle>img{
+    height: 100px;
+    width: 100px;
+}
+
+.pageHeader>p{
+    color: #132B3D;
+    font-family: 'Avenir Next', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.conversor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #174364;
+    height: 800px;
+}
+
+.buttons{
+    position: absolute;
+    margin-top: -300px;
+}
+
+.buttons>button{
+    border-radius: 8px;
+    border: 1px solid #326B97;
+    background: #FEFEFE;
+    box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.25);
+    color: #326B97;
+    font-family: 'Avenir Next';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.conversion-results{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 940px;
+    height: 292px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: #4DA7D1;
+    gap: 12px;
+}
+
+.conversion-results>input{
+    width: 280px;
+    height: 140px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 2px solid #326B97;
+    background: #FEFEFE;
+    color: #000;
+    font-family: 'Avenir Next';
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.save-button{
+    position: absolute;
+    margin-bottom: -300px;
+}
+
+.save-button>button{
+    width: 287.428px;
+    height: 77.683px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    border: 2px solid #FD0;
+    background: #F6B207;
+    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.25);
+    color: #6C5210;
+    text-align: center;
+    font-family: 'Avenir Next';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.arrow{
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #333;
+}
+
+.historico{
+    margin: 112px;
+}
+
+
+.historico>p{
+    color: #174364;
+    font-family: 'Futura', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.historic-data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 128px;
+}
+
+.historic-list{
+    overflow: auto;
+    width: 652px;
+    height: 500px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #8E8E8E;
+    background: #FEFEFE;
+}
+
+.historic-header-table{
+    display: flex;
+    flex-direction: column;
+}
+
+.historic-titles{
+    display: flex;
+    margin-left: 84px;
+    gap: 136px;
+}
+.historic-results{
+    overflow: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.historic-results>button{
+    width: 124px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    border: 2px solid #FD0;
+    background: #F6B207;
+    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.25);
+    color: #6C5210;
+    text-align: center;
+    font-family: 'Avenir Next';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.linhacinza{
+    margin-left: 24px;
+    width: 600px;
+    height: 1px;
+    background: #8E8E8E; 
+}
+
+.link-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.button-link{
+    width: 300px;
+    height: 200px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    border: 2px solid #FD0;
+    background: #F6B207;
+    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.25);
+    color: #6C5210;
+    font-family: 'Avenir Next';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.real{
+    position: absolute;
+    margin-right: 480px;
+    color: #000;
+    font-family: 'Avenir Next';
+    font-size: 32px;
+    font-style: bold;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.outra-moeda{
+    position: absolute;
+    margin-left: 180px;
+    color: #000;
+    font-family: 'Avenir Next';
+    font-size: 32px;
+    font-style: bold;
+    font-weight: 600;
+    line-height: normal;
+}
