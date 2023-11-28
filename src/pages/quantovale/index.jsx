@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.css"
+import bigMac from "../../imgs/bigmac.png"
 
 export default function ValeQuanto() {
   const [coinSimbol, setCoinSimbol] = useState("US$");
@@ -28,28 +29,23 @@ export default function ValeQuanto() {
 
   return (
     <section>
-      <h1>Vale Quanto?</h1>
-      <button onClick={() => newCoin(coins?.USDBRL?.bid, "US$")}>Dolar</button>
-      <button onClick={() => newCoin(coins?.EURBRL?.bid, "€")}>Euro</button>
-      <button onClick={() => newCoin(coins?.GBPBRL?.bid, "£")}>Libra</button>
-      <button onClick={() => newCoin(coins?.ARSBRL?.bid, "$")}>Peso arg</button>
-      <button onClick={() => newCoin(coins?.JPYBRL?.bid, "J¥")}>
-        Iene Jap
-      </button>
-      <button onClick={() => newCoin(coins?.CNYBRL?.bid, "C¥")}>
-        Yuan Chinês
-      </button>
-      <button onClick={() => newCoin(coins?.CADBRL?.bid, "C$")}>
-        Dolar Canadense
-      </button>
-      <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>
-        Franco Suíço
-      </button>
-      <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>
-        Dólar Australiano
-      </button>
-      <p>{coinSimbol}</p>
-      <input
+      <section className="pageHeader">
+        <h1 className="titlepage">Vale Quanto?</h1>
+        <section className="buttonsrow"> 
+        <button onClick={() => newCoin(coins?.USDBRL?.bid, "US$")}>USD</button>
+            <button onClick={() => newCoin(coins?.EURBRL?.bid, "€")}>EUR</button>
+            <button onClick={() => newCoin(coins?.GBPBRL?.bid, "£")}>GBP</button>
+            <button onClick={() => newCoin(coins?.ARSBRL?.bid, "$")}>ARS</button>
+            <button onClick={() => newCoin(coins?.JPYBRL?.bid, "J¥")}>JPY</button>
+            <button onClick={() => newCoin(coins?.CNYBRL?.bid, "C¥")}>CNY</button>
+            <button onClick={() => newCoin(coins?.CADBRL?.bid, "C$")}>CAD</button>
+            <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>CHF</button>
+            <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>AUD</button>
+        </section>
+      </section>
+      <section className="quantovaleinput">
+        <p>{coinSimbol}</p>
+        <input
         type="number"
         value={value2}
         onChange={(e) => {
@@ -57,6 +53,7 @@ export default function ValeQuanto() {
           setValue1(e.target.value * coinConverted);
         }}
       />
+      </section>
       <section className="cards"> 
       {value1 >= 1.72 && (
         <div className="cell">
@@ -78,7 +75,7 @@ export default function ValeQuanto() {
       )}
       {value1 >= 26.9 && (
         <div className="cell">
-          <img src="https://assets.stickpng.com/images/5882482de81acb96424ffaac.png" />
+          <img src={bigMac} />
           <p>Esse valor é igual a {value1 / 26.9} Big macs</p>
         </div>
       )}

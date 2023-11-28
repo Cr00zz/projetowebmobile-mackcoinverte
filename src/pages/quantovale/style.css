@@ -2,14 +2,57 @@
     background-color: #ece2df;
   }
   
-  .pageValeQuanto h1 {
+  .titlepage{
     color: #174364;
-    font-family: Futura;
+    font-family: 'Futura', sans-serif;
     font-size: 64px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
     line-height: normal;
   }
+
+  .buttonsrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .buttonsrow>button{
+    border-radius: 8px;
+    border: 1px solid #326B97;
+    background: #FEFEFE;
+    box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.25);
+    color: #326B97;
+    font-family: 'Avenir Next';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .quantovaleinput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .quantovaleinput>input{
+    width: 568px;
+    height: 140px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #8E8E8E;
+    background: #FEFEFE;
+    text-align: center;
+    color: #000;
+    font-family: 'Avenir Next';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+  }
+
   
   .cell {
     margin: 16px;

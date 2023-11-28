@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom"
-import Logo from "../../imgs/coinverter.png"
 import "./style.css"
+import Header from "../../components/header";
 
 let nextId = 0;
 export default function Home(){
@@ -35,13 +35,7 @@ export default function Home(){
     return(
         <div>
           <section className="pageHeader">
-            <div className="pageTitle">
-              <div>
-                Mack <br />
-                CoinVerte
-              </div>
-              <img src={Logo} alt="mackcoinverte" />
-            </div>
+            <Header />
             <p>Bem-vindo ao nosso site de conversão de moedas! Aqui, você encontrará uma ferramenta prática e atualizada para converter moedas estrangeiras. Ideal para os alunos da Faculdade Mackenzie que estão planejando um intercâmbio, nossa calculadora permite que você tenha uma compreensão clara das taxas de câmbio, facilitando o planejamento financeiro durante sua experiência no exterior.</p>
           </section>
           <section className="conversor">
