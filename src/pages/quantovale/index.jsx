@@ -1,7 +1,7 @@
-"use client";
 import React, { useEffect, useState } from "react";
+import "./style.css"
 
-export default function valeQuanto() {
+export default function ValeQuanto() {
   const [coinSimbol, setCoinSimbol] = useState("US$");
   const [coins, setCoins] = useState();
   const [coinConverted, setCoinConverted] = useState(0);
