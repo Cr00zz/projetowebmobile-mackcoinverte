@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom"
 import "./style.css"
+import InputCoin from "../Input";
 import Header from "../../components/header";
 
 let nextId = 0;
@@ -30,7 +31,19 @@ export default function Home(){
         setValue1(newvalue2)
       };
 
-      
+      const onChangeInputReal = (value) => {
+        const value1 = parseFloat(value);
+        const value2 = parseFloat(value / coinConverted).toFixed(2);
+        setValue2(value2)
+        setValue1(value1)
+      };
+
+      const onChangeInputCoin = (value) => {
+        const value2 = parseFloat(value);
+        const value1 = parseFloat(value * coinConverted).toFixed(2);
+        setValue2(value2)
+        setValue1(value1)
+      };
 
     return(
         <div>
@@ -50,37 +63,11 @@ export default function Home(){
               <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>CHF</button>
               <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>AUD</button>
             </section>
-            <section className="conversion-results-home">
-              <div className="coin-input">
-              <div className="real">R$</div>
-              <input 
-              type="number" 
-              value={value2}
-              onChange={e => {
-                const value2 = parseFloat(e.target.value).toFixed(2);
-                const value1 = parseFloat(e.target.value / coinConverted).toFixed(2);
-                setValue2(value2)
-                setValue1(value1)
-                }
-              }
-              />
-              </div>
+            <section className="coinsInputs">
+              <InputCoin coinSimbol="R$" value={value1} action={onChangeInputReal}/>
               <div className="arrow"></div>
-              <div className="coin-input">
-              <div className="outra-moeda">{coinSimbol}</div>
-              <input 
-              type="number" 
-              value={value1}
-              onChange={e => {
-                const value2 = parseFloat(e.target.value).toFixed(2);
-                const value1 = parseFloat(e.target.value * coinConverted).toFixed(2);
-                setValue1(value2)
-                setValue2(value1)
-                }
-              }
-              />
-              </div>
-            </section>
+              <InputCoin coinSimbol={coinSimbol} value={value2} action={onChangeInputCoin}/>
+              </section>
             <section className="save-button">
               <button onClick={() => {
                 setHistorico([

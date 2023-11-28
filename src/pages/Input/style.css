@@ -1,0 +1,37 @@
+.conversion-results>input{
+  width: 280px;
+  height: 140px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 2px solid #326B97;
+  background: #FEFEFE;
+  color: #000;
+  font-family: 'Avenir Next';
+  text-align: center;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.conversion-details{
+  display: flex;
+  flex-direction: row;
+}
+
+.coinSimbol{
+  color: #000;
+  font-family: 'Avenir Next';
+  font-size: 32px;
+  font-style: bold;
+  font-weight: 600;
+  line-height: normal;
+}
+
+@media (max-width: 800px) {
+  .conversion-results>input{
+    margin-left: 10px;
+    width: 90%;
+    height: 100px;
+  }
+}
