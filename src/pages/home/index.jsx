@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom"
+import ButtonsCoins from "../../components/ButtonsCoins";
 import "./style.css"
-import InputCoin from "../Input";
+import InputCoin from "../../components/InputCoin";
 import Header from "../../components/header";
 
 let nextId = 0;
@@ -52,17 +53,7 @@ export default function Home(){
             <p>Bem-vindo ao nosso site de conversão de moedas! Aqui, você encontrará uma ferramenta prática e atualizada para converter moedas estrangeiras. Ideal para os alunos da Faculdade Mackenzie que estão planejando um intercâmbio, nossa calculadora permite que você tenha uma compreensão clara das taxas de câmbio, facilitando o planejamento financeiro durante sua experiência no exterior.</p>
           </section>
           <section className="conversor">
-            <section className="buttons">
-              <button onClick={() => newCoin(coins?.USDBRL?.bid, "US$")}>USD</button>
-              <button onClick={() => newCoin(coins?.EURBRL?.bid, "€")}>EUR</button>
-              <button onClick={() => newCoin(coins?.GBPBRL?.bid, "£")}>GBP</button>
-              <button onClick={() => newCoin(coins?.ARSBRL?.bid, "$")}>ARS</button>
-              <button onClick={() => newCoin(coins?.JPYBRL?.bid, "J¥")}>JPY</button>
-              <button onClick={() => newCoin(coins?.CNYBRL?.bid, "C¥")}>CNY</button>
-              <button onClick={() => newCoin(coins?.CADBRL?.bid, "C$")}>CAD</button>
-              <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>CHF</button>
-              <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>AUD</button>
-            </section>
+          <ButtonsCoins coins={coins} newCoin={newCoin}/>
             <section className="coinsInputs">
               <InputCoin coinSimbol="R$" value={value1} action={onChangeInputReal}/>
               <div className="arrow"></div>

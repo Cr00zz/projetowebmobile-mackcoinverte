@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import InputCoin from "../Input";
+import InputCoin from "../../components/InputCoin";
+import ButtonsCoins from "../../components/ButtonsCoins";
 import "./style.css"
 import bigMac from "../../imgs/bigmac.png"
 
@@ -41,18 +42,10 @@ export default function ValeQuanto() {
       <section className="pageHeader">
         <h1 className="titlepage">Vale Quanto?</h1>
       </section>
-      <section className="buttonsrow"> 
-        <button onClick={() => newCoin(coins?.USDBRL?.bid, "US$")}>USD</button>
-            <button onClick={() => newCoin(coins?.EURBRL?.bid, "€")}>EUR</button>
-            <button onClick={() => newCoin(coins?.GBPBRL?.bid, "£")}>GBP</button>
-            <button onClick={() => newCoin(coins?.ARSBRL?.bid, "$")}>ARS</button>
-            <button onClick={() => newCoin(coins?.JPYBRL?.bid, "J¥")}>JPY</button>
-            <button onClick={() => newCoin(coins?.CNYBRL?.bid, "C¥")}>CNY</button>
-            <button onClick={() => newCoin(coins?.CADBRL?.bid, "C$")}>CAD</button>
-            <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>CHF</button>
-            <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>AUD</button>
-        </section>
-      <InputCoin coinSimbol={coinSimbol} value={value2} action={onChangeInputCoin}/>
+      <ButtonsCoins coins={coins} newCoin={newCoin}/>
+      <div className="quantovaleinput">
+        <InputCoin coinSimbol={coinSimbol} value={value2} action={onChangeInputCoin}/>
+      </div>
       <section className="cards"> 
       {value1 >= 1.72 && (
         <div className="cell">
