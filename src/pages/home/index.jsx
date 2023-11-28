@@ -50,7 +50,8 @@ export default function Home(){
               <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>CHF</button>
               <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>AUD</button>
             </section>
-            <section className="conversion-results">
+            <section className="conversion-results-home">
+              <div className="coin-input">
               <div className="real">R$</div>
               <input 
               type="number" 
@@ -63,7 +64,9 @@ export default function Home(){
                 }
               }
               />
+              </div>
               <div className="arrow"></div>
+              <div className="coin-input">
               <div className="outra-moeda">{coinSimbol}</div>
               <input 
               type="number" 
@@ -76,6 +79,7 @@ export default function Home(){
                 }
               }
               />
+              </div>
             </section>
             <section className="save-button">
               <button onClick={() => {
@@ -95,7 +99,8 @@ export default function Home(){
                   <section className="historic-header-table">
                     <div className="historic-titles">
                       <p>BRL</p>
-                      <p>Outra moeda</p>
+                      <p className="outraMoeda">Outra moeda</p>
+                      <p>apagar</p>
                     </div>
                     <div className="linhacinza"></div>
                   </section>
@@ -108,7 +113,7 @@ export default function Home(){
                           historico.filter(e =>
                           e.id !== event.id
                             )
-                        );}}>Deletar</button>
+                        );}}>X</button>
                     </div>
                   ))}
                 </section>
