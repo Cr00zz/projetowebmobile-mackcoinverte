@@ -272,9 +272,25 @@ body{
   }
 
   @media (max-width: 700px) {
+    .pageHeader{
+        margin-left: 8%;
+    }
+
+    .historico{
+        margin-left: 7%;
+    }
+
+    .historico>p {
+        font-size: 40px;
+    }
 
     .outraMoeda{
         margin-left: 15px;
+    }
+
+    .historic-titles{
+        display: flex;
+        margin-left: 7%;
     }
 
     .arrow{
@@ -289,7 +305,7 @@ body{
     .pageTitle>div{
         color: #D33D20;
         font-family: 'Futura', sans-serif;
-        font-size: 46px;
+        font-size: 40px;
         font-style: normal;
         font-weight: bold;
         line-height: normal;
@@ -302,15 +318,27 @@ body{
 
   @media (min-width: 600px) {
 
-    .historic-titles{
-        display: flex;
-        margin-left: 7%;
-    }
-
     .linhacinza{
         margin-left: 24px;
         height: 1px;
         background: #8E8E8E; 
+    }
+
+  }
+
+  @media (max-width: 280px) {
+    .save-button>button {
+        width: 280px;
+    }
+
+    .coin-input>input{
+        width: 200px;
+        height: 100px;
+    }
+
+    .pageTitle>img{
+        width: 0px;
+        height: 0px;
     }
 
   }
