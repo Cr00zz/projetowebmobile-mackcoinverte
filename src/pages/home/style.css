@@ -13,7 +13,7 @@ body{
 .pageTitle{
     display: flex;
     align-items: flex-end;
-}
+}                   
 
 .pageTitle>div{
     color: #D33D20;
@@ -25,7 +25,7 @@ body{
 }
 
 .pageTitle>img{
-    height: 100px;
+    height: 100px;          
     width: 100px;
 }
 
@@ -291,6 +291,11 @@ body{
         font-style: normal;
         font-weight: bold;
         line-height: normal;
+    }
+
+    .buttons{
+        width: 60%;
+        gap: 60px;
     }
 
     .button-link{
