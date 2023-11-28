@@ -30,7 +30,8 @@ body{
 }
 
 .pageHeader>p{
-    color: #132B3D;             
+    color: #132B3D;
+    margin-right: 10%;
     font-family: 'Avenir Next', sans-serif;
     font-size: 24px;
     font-style: normal;
@@ -44,7 +45,7 @@ body{
     align-items: center;
     flex-direction: column;
     background: #174364;
-    height: 800px;
+    height: 500px;
 }
 
 .buttons{
@@ -65,38 +66,16 @@ body{
     line-height: normal;
 }
 
-.conversion-results-home{
+.coinsInputs{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 292px;
+    height: 300px;
     flex-shrink: 0;
     border-radius: 13px;
     background: #4DA7D1;
     gap: 12px;
-}
-
-.coin-input{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.coin-input>input{
-    width: 280px;
-    height: 140px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    border: 2px solid #326B97;
-    background: #FEFEFE;
-    color: #000;
-    font-family: 'Avenir Next';
-    text-align: center;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
 }
 
 .save-button{
@@ -123,6 +102,7 @@ body{
 .arrow{
     width: 0;
     height: 0;
+    margin-top: 35px;
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     border-left: 20px solid #000;
@@ -250,15 +230,17 @@ body{
  }
 
 @media (max-width: 800px) {
-    .conversion-results-home{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    .save-button {
+        margin-top: -30px;
+    }
+    .conversor{
+        height: 800px;
+    }
+    .coinsInputs{
         flex-direction: column;
         width: 100%;
         height: 500px;
-        border-radius: 13px;
-        gap: 12px;
     }
 
     .arrow{
@@ -334,11 +316,6 @@ body{
   @media (max-width: 280px) {
     .save-button>button {
         width: 280px;
-    }
-
-    .coin-input>input{
-        width: 200px;
-        height: 100px;
     }
 
     .pageTitle>img{

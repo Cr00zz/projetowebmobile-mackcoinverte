@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import InputCoin from "../Input";
 import "./style.css"
 import bigMac from "../../imgs/bigmac.png"
 
@@ -24,9 +25,16 @@ export default function ValeQuanto() {
   const newCoin = (coin, coinName) => {
     setCoinSimbol(coinName);
     setCoinConverted(coin);
-    const newValue = parseFloat(value2 * coin).toFixed(2);
+    const newValue = parseFloat(value2 * coin);
     setValue1(newValue);
   };
+
+  const onChangeInputCoin = (value) => {
+    const value2 = parseFloat(value);
+    const value1 = parseFloat(value* coinConverted);
+    setValue2(value2)
+    setValue1(value1)
+  }
 
   return (
     <section>
@@ -44,20 +52,7 @@ export default function ValeQuanto() {
             <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>CHF</button>
             <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>AUD</button>
         </section>
-      <section className="conversion-results">
-              <div className="outra-moeda">{coinSimbol}</div>
-              <input 
-              type="number" 
-              value={value2}
-              onChange={e => {
-                const value2 = parseFloat(e.target.value).toFixed(2);
-                const value1 = parseFloat(e.target.value * coinConverted).toFixed(2);
-                setValue2(value2)
-                setValue1(value1)
-                }
-              }
-              />
-            </section>
+      <InputCoin coinSimbol={coinSimbol} value={value2} action={onChangeInputCoin}/>
       <section className="cards"> 
       {value1 >= 1.72 && (
         <div className="cell">
