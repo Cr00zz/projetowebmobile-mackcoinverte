@@ -25,7 +25,7 @@ export default function Home({isCripto}){
           });
       };
 
-      useEffect(carregarCoin, []);
+      useEffect(carregarCoin, [isCripto]);
 
       const newCoin = (coin, coinName) => {
         const newvalue2 = parseFloat(value1/coin).toFixed(isCripto ? 6 : 2);
