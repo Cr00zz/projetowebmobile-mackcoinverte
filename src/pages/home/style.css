@@ -23,7 +23,7 @@ body{
     font-weight: bold;
     line-height: normal;
 }
-
+ 
 .pageTitle>img{
     height: 100px;          
     width: 100px;
@@ -108,54 +108,6 @@ body{
     display: flex;
     justify-content: center;
     gap: 128px;
-}
-
-.historic-list{
-    overflow: auto;
-    height: 500px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    border: 1px solid #8E8E8E;
-    background: #FEFEFE;
-}
-
-.historic-header-table{
-    display: flex;
-    flex-direction: column;
-}
-
-.historic-titles{
-    display: flex;
-    justify-content: space-around;
-}
-
-.historic-results{
-    overflow: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.historic-results>button{
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    border-radius: 13px;
-    border: 2px solid #FD0;
-    background: #F6B207;
-    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.25);
-    color: #6C5210;
-    text-align: center;
-    font-family: 'Avenir Next';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.linhacinza{
-    height: 1px;
-    background: #8E8E8E; 
 }
 
 .link-buttons{
@@ -246,10 +198,6 @@ body{
 
     .historico>p {
         font-size: 40px;
-    }
-
-    .outraMoeda{
-        margin-left: 15px;
     }
 
     .historic-titles{
