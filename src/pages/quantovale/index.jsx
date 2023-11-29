@@ -4,20 +4,19 @@ import ButtonsCoins from "../../components/ButtonsCoins";
 import "./style.css"
 import bigMac from "../../imgs/bigmac.png"
 
-export default function ValeQuanto() {
+export default function ValeQuanto({isCripto}) {
   const [coinSimbol, setCoinSimbol] = useState("US$");
   const [coins, setCoins] = useState();
   const [coinConverted, setCoinConverted] = useState(0);
   const [value1, setValue1] = useState(0);
   const [value2, setValue2] = useState(0);
   const carregarCoin = () => {
-    fetch(
-      "https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,ARS-BRL,JPY-BRL,CNY-BRL,CAD-BRL,CHF-BRL,AUD-BRL",
-    )
+    fetch(isCripto ? "https://economia.awesomeapi.com.br/json/last/BTC-BRL,LTC-BRL,ETH-BRL,XRP-BRL" : "https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,ARS-BRL,JPY-BRL,CNY-BRL,CAD-BRL,CHF-BRL,AUD-BRL")
       .then((response) => response.json())
       .then((data) => {
         setCoins(data);
-        setCoinConverted(data?.USDBRL?.bid);
+        setCoinSimbol(isCripto ? "BTC" : "US$")
+        setCoinConverted(isCripto ? data?.BTCBRL?.bid : data?.USDBRL?.bid)
       });
   };
 
