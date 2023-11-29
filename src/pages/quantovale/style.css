@@ -11,50 +11,17 @@
     line-height: normal;
   }
 
-  .buttonsrow{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .buttonsrow>button{
-    border-radius: 8px;
-    border: 1px solid #326B97;
-    background: #FEFEFE;
-    box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.25);
-    color: #326B97;
-    font-family: 'Avenir Next';
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
   .quantovaleinput{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    border-radius: 13px;
+    background: #4DA7D1;
   }
 
-  .quantovaleinput>input{
-    width: 568px;
-    height: 140px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    border: 1px solid #8E8E8E;
-    background: #FEFEFE;
-    text-align: center;
-    color: #000;
-    font-family: 'Avenir Next';
-    font-size: 32px;
-    font-style: normal;
-    font-weight: bold;
-    line-height: normal;
-  }
-
-  
   .cell {
     margin: 16px;
     display: flex;
@@ -64,7 +31,7 @@
     height: 292px;
     flex-shrink: 0;
     border-radius: 13px;
-    background: rgba(77, 167, 209, 0.63);
+    background: #F6B207;
   }
   
   .cell img {
@@ -90,4 +57,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  @media (max-width: 700px) {
+    .titlepage{
+      font-size: 48px;
+    }
   }

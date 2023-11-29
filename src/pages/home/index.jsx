@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom"
+import ButtonsCoins from "../../components/ButtonsCoins";
 import "./style.css"
-import InputCoin from "../Input";
+import InputCoin from "../../components/InputCoin";
 import Header from "../../components/header";
 
 let nextId = 0;
-export default function Home(){
+export default function Home({isCripto}){
     const navigate = useNavigate();
     const [coinSimbol, setCoinSimbol] = useState("US$");
     const [historico, setHistorico] = useState([]);
@@ -13,27 +14,29 @@ export default function Home(){
     const [coinConverted, setCoinConverted] = useState(0);
     const [value1, setValue1] = useState(0);
     const [value2, setValue2] = useState(0);
+
     const carregarCoin = () => {
-        fetch("https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,ARS-BRL,JPY-BRL,CNY-BRL,CAD-BRL,CHF-BRL,AUD-BRL,BTC-BRL,ETH-BRL,LTC-BRL")
+        fetch(isCripto ? "https://economia.awesomeapi.com.br/json/last/BTC-BRL,LTC-BRL,ETH-BRL,XRP-BRL" : "https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,ARS-BRL,JPY-BRL,CNY-BRL,CAD-BRL,CHF-BRL,AUD-BRL")
           .then((response) => response.json())
           .then((data) => {
             setCoins(data);
-            setCoinConverted(data?.USDBRL?.bid)
+            setCoinSimbol(isCripto ? "BTC" : "US$")
+            setCoinConverted(isCripto ? data?.BTCBRL?.bid : data?.USDBRL?.bid)
           });
       };
 
       useEffect(carregarCoin, []);
 
       const newCoin = (coin, coinName) => {
-        const newvalue2 = parseFloat(value2/coin).toFixed(2);
+        const newvalue2 = parseFloat(value1/coin).toFixed(isCripto ? 6 : 2);
         setCoinSimbol(coinName)
         setCoinConverted(coin)
-        setValue1(newvalue2)
+        setValue2(newvalue2)
       };
 
       const onChangeInputReal = (value) => {
         const value1 = parseFloat(value);
-        const value2 = parseFloat(value / coinConverted).toFixed(2);
+        const value2 = parseFloat(value / coinConverted).toFixed(isCripto ? 6 : 2);
         setValue2(value2)
         setValue1(value1)
       };
@@ -52,17 +55,7 @@ export default function Home(){
             <p>Bem-vindo ao nosso site de conversão de moedas! Aqui, você encontrará uma ferramenta prática e atualizada para converter moedas estrangeiras. Ideal para os alunos da Faculdade Mackenzie que estão planejando um intercâmbio, nossa calculadora permite que você tenha uma compreensão clara das taxas de câmbio, facilitando o planejamento financeiro durante sua experiência no exterior.</p>
           </section>
           <section className="conversor">
-            <section className="buttons">
-              <button onClick={() => newCoin(coins?.USDBRL?.bid, "US$")}>USD</button>
-              <button onClick={() => newCoin(coins?.EURBRL?.bid, "€")}>EUR</button>
-              <button onClick={() => newCoin(coins?.GBPBRL?.bid, "£")}>GBP</button>
-              <button onClick={() => newCoin(coins?.ARSBRL?.bid, "$")}>ARS</button>
-              <button onClick={() => newCoin(coins?.JPYBRL?.bid, "J¥")}>JPY</button>
-              <button onClick={() => newCoin(coins?.CNYBRL?.bid, "C¥")}>CNY</button>
-              <button onClick={() => newCoin(coins?.CADBRL?.bid, "C$")}>CAD</button>
-              <button onClick={() => newCoin(coins?.CHFBRL?.bid, "SFr")}>CHF</button>
-              <button onClick={() => newCoin(coins?.AUDBRL?.bid, "AU$")}>AUD</button>
-            </section>
+          <ButtonsCoins coins={coins} newCoin={newCoin}/>
             <section className="coinsInputs">
               <InputCoin coinSimbol="R$" value={value1} action={onChangeInputReal}/>
               <div className="arrow"></div>
@@ -74,8 +67,8 @@ export default function Home(){
                   ...historico,
                   {id: nextId++,
                   moeda: coinSimbol,
-                  realValue: value2,
-                  coinValue: value1}
+                  realValue: value1,
+                  coinValue: value2}
                 ])}}>Salvar</button>
             </section>
           </section>
@@ -105,8 +98,14 @@ export default function Home(){
                   ))}
                 </section>
                 <section className="link-buttons">
-                  <button className="button-link">Criptomoedas</button>
-                  <button className="button-link" onClick={() => {navigate("/valequanto")}}>Vale quanto?</button>
+                  <button className="button-link" onClick={() => {
+                    navigate(isCripto ? "/" : "/isCripto" )
+                    window.location.reload();
+                    window.scrollTo(0, 0)
+                    }}> {isCripto ? "Moedas": "Criptomoedas" }</button>
+                  <button className="button-link" onClick={() => {
+                    navigate(isCripto ? "/valequanto/isCripto" : "/valequanto" )
+                    }}>Vale quanto?</button>
                 </section>
               </section>
           </section>

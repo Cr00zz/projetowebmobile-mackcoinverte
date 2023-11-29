@@ -48,24 +48,6 @@ body{
     height: 500px;
 }
 
-.buttons{
-    z-index: 1;
-    margin-bottom: -20px;
-}
-
-.buttons>button{
-    border-radius: 8px;
-    border: 1px solid #326B97;
-    background: #FEFEFE;
-    box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.25);
-    color: #326B97;
-    font-family: 'Avenir Next';
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
 .coinsInputs{
     display: flex;
     justify-content: center;
